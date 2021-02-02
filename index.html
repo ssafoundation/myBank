@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="loginWrap" class="login-btn-wrap">
+        <button id="login">login</button>
+    </div>
+
+
+    <section id="dashboard" class="dashboard-area">
+        <div class="dashboard-top">
+            <div class="box">
+                <h6>Deposit</h6>
+                <h1>$ <span id="currentDeposit">00</span></h1>
+            </div>
+            <div class="box">
+                <h6>Withdraw</h6>
+                <h1>$00</h1>
+            </div>
+            <div class="box">
+                <h6>Total Balance</h6>
+                <h1>$1000</h1>
+            </div>
+        </div>
+        <div class="dashboard-bottom">
+            <div class="box">
+                <h6>Deposit</h6>
+                <input type="text" name="" id="depositAmount">
+                <button type="submit" id="deposit">Deposit</button>
+            </div>
+            <div class="box">
+                <h6>Withdraw</h6>
+                <input type="text" name="" id="">
+                <button type="submit">Withdraw</button>
+            </div>
+
+        </div>
+    </section>
+    <script>
+        // --------- 
+
+        const loginBtn = document.getElementById("login");
+        loginBtn.addEventListener("click", function() {
+            const loginArea = document.getElementById('login');
+            loginArea.style.display = 'none';
+            const loginWrap = document.getElementById('loginWrap');
+            loginWrap.style.display = 'none'
+            const dashboard = document.getElementById('dashboard');
+            dashboard.style.display = "block";
+        });
+        // ===================
+        const deposit = document.getElementById('deposit');
+        deposit.addEventListener("click", function() {
+            const depositAmount = document.getElementById('depositAmount').value;
+            const depositNumber = parseFloat(depositAmount);
+
+            const currentDeposit = document.getElementById('currentDeposit').innerText;
+            const currentNumber = parseFloat(currentDeposit);
+            const total = depositNumber + currentNumber;
+            document.getElementById('currentDeposit').innerText = total;
+            document.getElementById('depositAmount').value = '';
+        });
+    </script>
+
+</body>
+
+</html>
